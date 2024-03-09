@@ -1,14 +1,22 @@
 import { useSelector } from "react-redux";
 import ecommerceStore from "../store";
+import { FaCartArrowDown } from "react-icons/fa";
+import "../css/header.css"
+import MiniCart from "./MiniCart";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const Header = () => {
+    const [showMinicart, setshowMinicart] = useState(false);
+    const navigate = useNavigate()
+    const bagData = useSelector((ecommerceStore) => ecommerceStore.bag)
+    // console.log('bagData', bagData);
 
-    const bag = useSelector((ecommerceStore) => ecommerceStore.bag)
-    console.log(bag);
 
     return (
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <>
+            <nav className="navbar navbar-expand-lg navbar-light bg-secondary">
                 <a className="navbar-brand" href="#">Navbar</a>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -43,7 +51,19 @@ const Header = () => {
                         </button>
                     </form> */}
                 </div>
+                <div className="me-5 pb-2" onMouseOver={() => setshowMinicart(true)}
+                    onMouseOut={() => setshowMinicart(false)}>
+                    <button className="btn btn-light minicart"
+                        onClick={() => navigate('/cart')}>
+                        <div className="p-1">
+                            <FaCartArrowDown style={{ "fontSize": "1.5rem" }} />
+                            <span className="bag-count">{bagData.bagCount}</span>
+                        </div>
+                    </button>
+                    <MiniCart showMinicart={showMinicart} />
+                </div>
             </nav>
+        </>
     );
 }
 

@@ -1,0 +1,10 @@
+.cart-lineItem {
+    width: 40%;
+    margin: 1rem;
+    border: 1px solid black;
+}
+.p-title img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}

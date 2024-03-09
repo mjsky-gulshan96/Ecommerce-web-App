@@ -7,11 +7,18 @@ import { Provider } from 'react-redux'
 import "bootstrap/dist/css/bootstrap.min.css"
 import './index.css'
 import ecommerceStore from './store/index.js'
+import { loadProducts } from './components/Products.jsx'
+import Cart from './pages/Cart.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />
+    element: <Home />,
+    loader: loadProducts
+  },
+  {
+    path: '/cart',
+    element: <Cart/>
   }
 ])
 

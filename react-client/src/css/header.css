@@ -1,0 +1,15 @@
+.navbar {
+    position: fixed !important;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+}
+.bag-count{
+    position: absolute;
+    top: 0;
+    color: red;
+    font-weight: bold;
+    background: black;
+    border-radius: 50%;
+    width: 1.5rem;
+}

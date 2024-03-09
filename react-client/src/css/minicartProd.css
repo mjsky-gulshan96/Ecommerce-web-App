@@ -1,0 +1,8 @@
+.cart-product-img {
+    width: 20%;
+}
+
+.cart-product-title {
+    display: flex;
+    justify-content: space-between;
+}

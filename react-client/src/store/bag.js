@@ -4,20 +4,19 @@ const bagSlice = createSlice({
     name: 'counter',
     initialState: {
         bagCount: 0,
-        products: []
+        productIDs: []
     },
     reducers: {
         addToBag: (state, action) => {
             state.bagCount++;
-            state.products.push(action.payload.pid)
-            console.log(state.products);
+            state.productIDs.push(action.payload.pid)
         },
         remove: (state, action) => {
             state.bagCount--;
-            state.products = state.products.filter((id) => {
-                id !== action.payload.pid;
+            state.productIDs = state.productIDs.filter((id) => {
+                return id !== action.payload.pid;
             })
-            console.log(state);
+            return state
         }
     }
 })
